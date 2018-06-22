@@ -3,7 +3,12 @@
 import Vue from 'vue';
 import App from './App';
 import router from './router';
-import './assets/styles/reset.css';
+
+// 这一块可以看 webpack.base.conf.js 的 resolve
+import 'styles/reset.css';
+import 'styles/border.css';
+import 'styles/iconfont.css';
+
 import fastClick from 'fastclick';
 
 Vue.config.productionTip = false;
