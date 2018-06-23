@@ -14,7 +14,7 @@
 <script>
 export default {
   name: 'HomeSwiper',
-  data () {
+  data() {
     return {
       swiperOption: {
         pagination: '.swiper-pagination',
@@ -27,7 +27,7 @@ export default {
         id: '0002',
         imgUrl: 'http://img1.qunarzz.com/piao/fusion/1805/3b/ef86879aa50e3002.jpg_750x200_2a108508.jpg',
       }],
-    }
+    };
   },
 };
 </script>
