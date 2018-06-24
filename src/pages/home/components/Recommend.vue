@@ -2,14 +2,21 @@
   <div>
     <div class="title">热销推荐</div>
     <ul>
-      <li class="item border-bottom" v-for="item of list" :key="item.id">
+      <!-- tag可以把router-link不渲染成a标签，而是其他的 -->
+      <router-link
+        tag="li"
+        :to="'/detail/' + item.id"
+        class="item border-bottom"
+        v-for="item of list"
+        :key="item.id"
+      >
         <img class="item-img" :src="item.imgUrl" />
         <div class="item-info">
           <p class="item-title">{{ item.title }}</p>
           <p class="item-desc">{{ item.desc }}</p>
           <button class="item-button">查看详情</button>
         </div>
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>
