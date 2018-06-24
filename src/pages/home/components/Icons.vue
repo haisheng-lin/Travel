@@ -19,10 +19,10 @@ export default {
   props: {
     list: Array,
   },
-  data () {
+  data() {
     return {
       swiperOption: {
-        autoplay: false
+        autoplay: false,
       },
     };
   },
