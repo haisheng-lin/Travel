@@ -9,6 +9,7 @@
     </div>
     <router-link to="/city">
       <div class="header-right">
+        <!-- 这里的store是在main.js里面传进去的 -->
         {{ this.city }}
         <span class="iconfont arrow-icon">&#xe65e;</span>
       </div>
@@ -18,10 +19,12 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
   name: 'HomeHeader',
-  props: {
-    city: String,
+  computed: {
+    ...mapState(['city']), // vuex提供的mapState可以映射它state里面的变量到computed里面
   },
 };
 </script>
@@ -50,7 +53,8 @@ export default {
       border-radius: .1rem
       color: #cccccc
     .header-right
-      width: 1.24rem
+      min-width: 1.04rem
+      padding: 0 .1rem
       float: right
       text-align: center
       color: #ffffff

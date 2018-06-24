@@ -5,7 +5,12 @@
   </div>
   <div class="search-content" ref="search" v-show="keyword">
     <ul>
-      <li class="search-item border-bottom" v-for="item of list" :key="item.id">
+      <li
+        class="search-item border-bottom"
+        v-for="item of list"
+        :key="item.id"
+        @click="handleCityClick(item.name)"
+      >
         {{ item.name }}
       </li>
       <li class="search-item border-bottom" v-show="hasNoData">
@@ -19,6 +24,7 @@
 
 <script>
 import BScroll from 'better-scroll';
+import { mapMutations } from 'vuex';
 
 export default {
   name: 'CitySearch',
@@ -32,10 +38,18 @@ export default {
       timer: null,
     };
   },
+  methods: {
+    handleCityClick(city) {
+      // 'changeCity'是你要触发的action名字，当然也可以像以下的做法一样跳过action，直接调用commit
+      this.changeCity(city);
+      this.$router.push('/');
+    },
+    ...mapMutations(['changeCity']), // 把changeCity映射到methods里面的changeCity方法
+  },
   computed: {
     hasNoData() {
       return !this.list.length;
-    }
+    },
   },
   watch: {
     keyword() {
